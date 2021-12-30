@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="11"/>
+    <BuildModes Active="Release"/>
+    <Units Count="12">
+      <Unit0>
+        <Filename Value="platvoice.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="40" Y="14"/>
+        <UsageCount Value="200"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="main.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="209"/>
+        <CursorPos X="8" Y="218"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="voiceproc.pas"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="1151"/>
+        <CursorPos X="19" Y="1166"/>
+        <UsageCount Value="225"/>
+        <Bookmarks Count="2">
+          <Item0 X="16" Y="1033"/>
+          <Item1 X="9" Y="1225" ID="1"/>
+        </Bookmarks>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="platproc.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="688"/>
+        <CursorPos Y="695"/>
+        <UsageCount Value="301"/>
+        <Loaded Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="lazdynamic_bass.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="85"/>
+        <CursorPos X="39" Y="5"/>
+        <UsageCount Value="73"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="version_info.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="73"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="settings.pas"/>
+        <ComponentName Value="Form2"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="15" Y="11"/>
+        <UsageCount Value="169"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="../sources/zeos_714s/src/component/ZUpdateSqlEditor.pas"/>
+        <TopLine Value="848"/>
+        <CursorPos Y="869"/>
+        <UsageCount Value="1"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="settings.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="10"/>
+        <CursorPos X="52" Y="14"/>
+        <UsageCount Value="2"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="../lazarus/fpc-3.0.4/rtl/objpas/sysutils/datih.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="142"/>
+        <CursorPos X="10" Y="155"/>
+        <UsageCount Value="9"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="../lazarus/components/lazutils/lazfileutils.pas"/>
+        <UnitName Value="LazFileUtils"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="10"/>
+        <UsageCount Value="5"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="../lazarus/fpc-3.0.4/packages/rtl-objpas/src/inc/dateutils.pp"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="5"/>
+      </Unit11>
+    </Units>
+    <JumpHistory Count="30" HistoryIndex="29">
+      <Position1>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1264" TopLine="1247"/>
+      </Position1>
+      <Position2>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1266" TopLine="1247"/>
+      </Position2>
+      <Position3>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1268" TopLine="1247"/>
+      </Position3>
+      <Position4>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1269" TopLine="1247"/>
+      </Position4>
+      <Position5>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1273" TopLine="1249"/>
+      </Position5>
+      <Position6>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1274" TopLine="1250"/>
+      </Position6>
+      <Position7>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1275" TopLine="1251"/>
+      </Position7>
+      <Position8>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1276" TopLine="1252"/>
+      </Position8>
+      <Position9>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1277" TopLine="1253"/>
+      </Position9>
+      <Position10>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1278" TopLine="1254"/>
+      </Position10>
+      <Position11>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1279" TopLine="1255"/>
+      </Position11>
+      <Position12>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1280" TopLine="1256"/>
+      </Position12>
+      <Position13>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1281" TopLine="1257"/>
+      </Position13>
+      <Position14>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1282" TopLine="1258"/>
+      </Position14>
+      <Position15>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1283" TopLine="1259"/>
+      </Position15>
+      <Position16>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1284" TopLine="1260"/>
+      </Position16>
+      <Position17>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1285" TopLine="1261"/>
+      </Position17>
+      <Position18>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1286" TopLine="1262"/>
+      </Position18>
+      <Position19>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1287" TopLine="1263"/>
+      </Position19>
+      <Position20>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1288" TopLine="1264"/>
+      </Position20>
+      <Position21>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1289" TopLine="1265"/>
+      </Position21>
+      <Position22>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1261" TopLine="1246"/>
+      </Position22>
+      <Position23>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1263" TopLine="1246"/>
+      </Position23>
+      <Position24>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1264" TopLine="1246"/>
+      </Position24>
+      <Position25>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1266" TopLine="1246"/>
+      </Position25>
+      <Position26>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1268" TopLine="1246"/>
+      </Position26>
+      <Position27>
+        <Filename Value="voiceproc.pas"/>
+        <Caret Line="1264" Column="9" TopLine="1258"/>
+      </Position27>
+      <Position28>
+        <Filename Value="main.pas"/>
+        <Caret Line="360" Column="9" TopLine="342"/>
+      </Position28>
+      <Position29>
+        <Filename Value="main.pas"/>
+        <Caret Line="403" Column="8" TopLine="380"/>
+      </Position29>
+      <Position30>
+        <Filename Value="main.pas"/>
+        <Caret Line="218" Column="8" TopLine="209"/>
+      </Position30>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="0" ActiveMode="default"/>
+    </RunParams>
+  </ProjectSession>
+  <Debugging>
+    <Watches Count="6">
+      <Item1>
+        <Expression Value="ConnectINI[1]"/>
+      </Item1>
+      <Item2>
+        <Expression Value="ConnectINI[2]"/>
+      </Item2>
+      <Item3>
+        <Expression Value="ConnectINI[3]"/>
+      </Item3>
+      <Item4>
+        <Expression Value="ConnectINI[4]"/>
+      </Item4>
+      <Item5>
+        <Expression Value="ConnectINI[5]"/>
+      </Item5>
+      <Item6>
+        <Expression Value="ConnectINI[6]"/>
+      </Item6>
+    </Watches>
+  </Debugging>
+</CONFIG>
