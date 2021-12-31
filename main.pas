@@ -75,6 +75,9 @@ type
     { public declarations }
   end;
 
+const
+  dirname = 'voice_log';
+
 var
            Form1:TForm1;
          defpath:string;
@@ -215,6 +218,44 @@ end;
 
 procedure TForm1.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
 begin
+  if key=27 then
+    begin
+      form1.Close;
+      halt;
+    end;
+
+  //F1 Показывать сообщения
+  if key=112 then
+    begin
+       key:=0;
+    if form1.CheckBox1.Checked then
+     form1.CheckBox1.Checked := false
+    else
+      form1.CheckBox1.Checked := true;
+    end;
+  //F2 Сохранить в файл
+  if key=113 then
+    begin
+      key:=0;
+      Memo1.Lines.SaveToFile(ExtractFilePath(Application.ExeName)+dirname+'/manual_'+FormatDateTime('yyyy-mm-dd_hhmm', now())+'.log');
+      form1.memo1.Lines.Clear;
+    end;
+  //F3 вывести недостающие файлы
+   if key=114 then
+    form1.Button1.Click;
+  //F5 очистка
+  if key=116 then
+    form1.memo1.Lines.Clear;
+
+  //F9
+  if key=120 then
+  begin
+    key:=0;
+    if form1.CheckBox2.Checked then
+     form1.CheckBox2.Checked := false
+    else
+      form1.CheckBox2.Checked := true;
+  end;
   //F10
   if key=121 then
   begin
@@ -268,11 +309,7 @@ end;
 procedure TForm1.Button1Click(Sender: TObject);    // Вычисляем недостающие звуки
 var
   n:integer;
-  info_message:Boolean;
 begin
-  info_message:=false;
-  form1.zapros.Enabled:=false;
-
   If not(Connect2(form1.ZConnection1, flagProfile)) then
   begin
     write_log('Соединение с сервером базы данных отсутствует ! --m04--');
@@ -290,7 +327,7 @@ begin
     form1.ZConnection1.disconnect;
     exit;
   end;
-
+ write_log('Проверьте права доступа к файлам! (оптимальное 100444)');
  // Вычисляем файлы звука которых нет
   for n:=0 to form1.ZQuery1.RecordCount-1 do
     begin
@@ -298,12 +335,9 @@ begin
         then
            write_log('--m06--НЕ найден файл: '+ trim(form1.ZQuery1.FieldByName('kod_locality').asString)+' - '+trim(form1.ZQuery1.FieldByName('name').asString));
       form1.ZQuery1.Next;
-      if n=1 then info_message:=true;
     end;
   form1.ZQuery1.Close;
   form1.ZConnection1.disconnect;
-  if info_message=true then write_log('У приложения нет доступа к файлам! (оптимальное 100444)');
-  form1.zapros.Enabled:=true;
 end;
 
 procedure TForm1.Button2Click(Sender: TObject);     // очистка
@@ -313,7 +347,7 @@ end;
 
 procedure TForm1.Button3Click(Sender: TObject);
 begin
-  Memo1.Lines.SaveToFile(ExtractFilePath(Application.ExeName)+'voice_log/manual_'+FormatDateTime('yyyy-mm-dd_hhmm', now())+'.log');
+  Memo1.Lines.SaveToFile(ExtractFilePath(Application.ExeName)+dirname+'/manual_'+FormatDateTime('yyyy-mm-dd_hhmm', now())+'.log');
   form1.memo1.Lines.Clear;
 end;
 
@@ -327,6 +361,7 @@ procedure TForm1.Button5Click(Sender: TObject);
 begin
   form1.test_sound();
 end;
+
 
 procedure TForm1.CheckBox2Change(Sender: TObject);
 var

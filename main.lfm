@@ -802,7 +802,7 @@ object Form1: TForm1
     Transparent = False
   end
   object Label2: TLabel
-    Left = 56
+    Left = 65
     Height = 24
     Top = 142
     Width = 202
@@ -812,7 +812,7 @@ object Form1: TForm1
     ParentFont = False
   end
   object Shape1: TShape
-    Left = 8
+    Left = 17
     Height = 34
     Top = 88
     Width = 39
@@ -820,7 +820,7 @@ object Form1: TForm1
     Shape = stCircle
   end
   object Label3: TLabel
-    Left = 56
+    Left = 65
     Height = 25
     Top = 93
     Width = 193
@@ -847,7 +847,7 @@ object Form1: TForm1
     ParentFont = False
   end
   object Shape2: TShape
-    Left = 8
+    Left = 17
     Height = 34
     Top = 136
     Width = 39
@@ -855,7 +855,7 @@ object Form1: TForm1
     Shape = stCircle
   end
   object Shape3: TShape
-    Left = 8
+    Left = 17
     Height = 34
     Top = 184
     Width = 39
@@ -863,7 +863,7 @@ object Form1: TForm1
     Shape = stCircle
   end
   object Label4: TLabel
-    Left = 56
+    Left = 65
     Height = 25
     Top = 190
     Width = 139
@@ -874,65 +874,65 @@ object Form1: TForm1
     OnClick = Label4Click
   end
   object Memo1: TMemo
-    Left = 8
+    Left = 11
     Height = 427
     Top = 331
-    Width = 808
+    Width = 793
     ReadOnly = True
     ScrollBars = ssAutoBoth
     TabOrder = 2
     WordWrap = False
   end
   object Button1: TButton
-    Left = 8
+    Left = 11
     Height = 30
     Top = 295
-    Width = 808
-    Caption = 'Отобразить недостающие звуковые файлы для текущего сервера'
+    Width = 620
+    Caption = 'Отобразить недостающие звуковые файлы для текущего сервера [F3]'
     OnClick = Button1Click
     TabOrder = 1
   end
   object Button2: TButton
-    Left = 824
+    Left = 813
     Height = 45
     Top = 408
-    Width = 185
-    Caption = 'Очистка'
+    Width = 198
+    Caption = 'Очистисть [F5]'
     OnClick = Button2Click
     TabOrder = 4
   end
   object Button3: TButton
-    Left = 824
+    Left = 813
     Height = 47
     Top = 464
-    Width = 185
-    Caption = 'Сохранить в файл'
+    Width = 198
+    Caption = 'Сохранить в файл [F2]'
     OnClick = Button3Click
     TabOrder = 5
   end
   object Button4: TButton
-    Left = 824
+    Left = 813
     Height = 55
-    Top = 673
-    Width = 185
-    Caption = 'Выход'
+    Top = 696
+    Width = 198
+    Caption = 'Выход [ESC]'
     OnClick = Button4Click
     TabOrder = 6
   end
   object Label5: TLabel
     AnchorSideLeft.Control = CheckBox1
     AnchorSideLeft.Side = asrBottom
-    Left = 396
+    Left = 578
     Height = 19
     Top = 264
     Width = 92
     Anchors = [akLeft]
-    BorderSpacing.Left = 49
+    BorderSpacing.Left = 200
     Caption = 'за 15 минут:'
     ParentColor = False
   end
   object Label8: TLabel
-    Left = 848
+    Left = 984
     Height = 19
     Top = 297
     Width = 9
@@ -953,27 +953,27 @@ object Form1: TForm1
     Left = 17
     Height = 21
     Top = 264
-    Width = 330
-    Caption = 'выводить воспроизводимые сообщения'
+    Width = 361
+    Caption = 'выводить воспроизводимые сообщения [F1]'
     Checked = True
     State = cbChecked
     TabOrder = 0
   end
   object Button5: TButton
-    Left = 824
+    Left = 813
     Height = 69
     Top = 331
-    Width = 185
+    Width = 198
     Caption = 'ТЕСТ ЗВУКА [F12]'
     OnClick = Button5Click
     TabOrder = 3
   end
   object CheckBox2: TCheckBox
-    Left = 832
+    Left = 813
     Height = 21
     Top = 528
-    Width = 173
-    Caption = 'записывать журнал'
+    Width = 192
+    Caption = 'сохранять журнал [F9]'
     OnChange = CheckBox2Change
     TabOrder = 7
   end
@@ -998,11 +998,11 @@ object Form1: TForm1
     ParentFont = False
   end
   object CheckBox3: TCheckBox
-    Left = 832
+    Left = 813
     Height = 21
     Top = 568
-    Width = 185
-    Caption = 'записывать журн F10'
+    Width = 183
+    Caption = 'сохранять журн [F10]'
     Checked = True
     OnChange = CheckBox2Change
     State = cbChecked
@@ -1029,7 +1029,7 @@ object Form1: TForm1
   end
   object zapros: TTimer
     Enabled = False
-    Interval = 5000
+    Interval = 10000
     OnTimer = zaprosTimer
     left = 400
     top = 608

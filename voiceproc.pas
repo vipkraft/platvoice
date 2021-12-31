@@ -169,7 +169,6 @@ procedure write_log(str:string);
  var
   filelog:TextFile;
   namelog:string='';
-  dirname:string;
   log_file: textfile;
 begin
   If (trim(str)='') then exit;
@@ -178,7 +177,7 @@ begin
                form1.Memo1.Lines.Add(str);
   //если не писать лог - выход
   if not log_flag then exit;
-  dirname := 'voice_log';
+
   namelog:=ExtractFilePath(Application.ExeName)+dirname+'/voice_'+FormatDateTime('yy-mm-dd', now())+'.log';
   // --------Проверяем что уже есть каталог LOG если нет то создаем
   If Not DirectoryExistsUTF8(ExtractFilePath(Application.ExeName)+dirname) then
@@ -997,7 +996,8 @@ begin
           application.ProcessMessages;
 
           stream:= bass_streamCreateFile(false,Pchar(ExtractFilePath(Application.ExeName)+trim(fc)), 0, 0, 0);
-          //write_log('--v008-- рейс '+FormatDateTime('hh:mm:ss', now())+': '+fc);
+          //логировать только содержательный файл
+          if n=2 then write_log('--v008-- '+fc);
           // Начать проигрывание
           bass_channelplay(stream,false);
              repeat
