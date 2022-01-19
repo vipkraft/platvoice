@@ -29,7 +29,7 @@ uses
   procedure play_rejs_sound(ind:integer);
 
   // Теущая дата и время сервера
-  function get_time_date(ZCon:TZConnection; ZQ:TZquery):boolean;
+  function get_time_date(ZCon:TZConnection; ZQ:TZquery):string;
 
   // Определяем состав рейса
   procedure sostav_rejs(ZCon:TZConnection; ZQ:TZquery;ind:integer);
@@ -143,6 +143,8 @@ md5_av_trip_add:string='';  // md5 для av_trip_add
   // mas_sound_rejs[n,11] do_name
   // mas_sound_rejs[n,12] createdate
   // mas_sound_rejs[n,13] createdate1
+  // mas_sound_rejs[n,14] napr
+  // mas_sound_rejs[n,15] id_oper
 
   // Массив состава рейса
   mas_rejs_sostav:array of string;
@@ -614,9 +616,9 @@ begin
 end;
 
 // Теущая дата и время сервера
-function get_time_date(ZCon:TZConnection; ZQ:TZquery):boolean;
+function get_time_date(ZCon:TZConnection; ZQ:TZquery):string;
 begin
- result:=false;
+ result:='';
  // -------------------- Соединяемся с локальным сервером ----------------------
  If not(Connect2(Zcon, flagProfile)) then
   begin
@@ -648,9 +650,9 @@ begin
  end;
  if ZQ.RecordCount>0 then
   begin
-  Tek_datetime:=ZQ.FieldByName('date').asString;
+  //Tek_datetime:=;
   form1.Label7.caption := 'мой адрес IP:' + ZQ.FieldByName('inet_client_addr').asString;
-  Result:=true;
+  Result:=ZQ.FieldByName('date').asString;
   end;
    ZQ.Close;
    Zcon.disconnect;
@@ -1040,6 +1042,18 @@ begin
        end;
    end;
 
+   // =========================ПРИОРИТЕТ 1.12===========================
+ for n:=0 to length(mas_sound_rejs)-1 do
+   begin
+       //Свободные места СРОЧНО
+     if trim(mas_sound_rejs[n,15])='80' then
+       begin
+         form1.Label2.Caption:='Состояние рейсов: СВОБОДНЫЕ МЕСТА рейс '+mas_sound_rejs[n,1]+' ['+mas_sound_rejs[n,0]+'] в '+trim(mas_sound_rejs[n,11]);
+         write_log('id_oper=80 Состояние рейсов: СРОЧНО! СВОБОДНЫЕ МЕСТА рейс '+mas_sound_rejs[n,1]+' ['+mas_sound_rejs[n,0]+'] в '+trim(mas_sound_rejs[n,11]));
+         play_rejs_sound(n);
+       end;
+   end;
+
  // =========================ПРИОРИТЕТ 1.2===========================
  // Разбираем дообилечивания рейсов
  for n:=0 to length(mas_sound_rejs)-1 do
@@ -1127,13 +1141,6 @@ begin
          form1.Label2.Caption:='Состояние рейсов: СВОБОДНЫЕ МЕСТА рейс '+mas_sound_rejs[n,1]+' ['+mas_sound_rejs[n,0]+'] в '+trim(mas_sound_rejs[n,11]);
          play_rejs_sound(n);
          end;
-      //Свободные места СРОЧНО
-     if trim(mas_sound_rejs[n,5])='80' then
-       begin
-         form1.Label2.Caption:='Состояние рейсов: СВОБОДНЫЕ МЕСТА рейс '+mas_sound_rejs[n,1]+' ['+mas_sound_rejs[n,0]+'] в '+trim(mas_sound_rejs[n,11]);
-         write_log('Состояние рейсов: СРОЧНО! СВОБОДНЫЕ МЕСТА рейс '+mas_sound_rejs[n,1]+' ['+mas_sound_rejs[n,0]+'] в '+trim(mas_sound_rejs[n,11]));
-         play_rejs_sound(n);
-       end;
    end;
 
  //вернуть исходные значения
@@ -1262,7 +1269,6 @@ try
   SetLength( mas_sound_rejs,0);
   for n:=0 to ZQ.RecordCount-1 do
     begin
-       SetLength(mas_sound_rejs,length(mas_sound_rejs)+1,16);
        if n=0 then prev_datetime:=ZQ.FieldByName('createdt').asString;
        //опаздывающим свободные
        If (ZQ.FieldByName('id_oper').asInteger=100) or (ZQ.FieldByName('id_oper').asInteger=80) then
@@ -1271,10 +1277,12 @@ try
               last_late_time:=ZQ.FieldByName('createdate').asDateTime
             else
               begin
+                //write_log('last_late_time: '+formatdatetime('yy-mm-dd hh:nn:ss.zzz',last_late_time)+'>='+formatdatetime('yy-mm-dd hh:nn:ss.zzz',ZQ.FieldByName('createdate').asDateTime));//$
                 zq.Next;
                 continue;
               end;
           end;
+       SetLength(mas_sound_rejs,length(mas_sound_rejs)+1,16);
        //write_log(ZQ.FieldByName('createdate').asString);
        mas_sound_rejs[length(mas_sound_rejs)-1,0]:=ZQ.FieldByName('id_shedule').asString;
        mas_sound_rejs[length(mas_sound_rejs)-1,1]:=ZQ.FieldByName('trip_time').asString;

@@ -207,6 +207,9 @@ begin
       write_log('Звуковой движок не обнаружен !!! --m02--');
      end;
 
+  //первоначальный запрос времени и айпи
+  tek_datetime:=get_time_date(form1.ZConnection1, Form1.Zquery1);
+  prev_datetime:= tek_datetime;
   form1.zapros.Enabled:=true;
 
 end;
@@ -347,7 +350,7 @@ end;
 
 procedure TForm1.Button3Click(Sender: TObject);
 begin
-  Memo1.Lines.SaveToFile(ExtractFilePath(Application.ExeName)+dirname+'/manual_'+FormatDateTime('yyyy-mm-dd_hhmm', now())+'.log');
+  Memo1.Lines.SaveToFile(ExtractFilePath(Application.ExeName)+dirname+'/manual_'+FormatDateTime('yyyy-mm-dd_hhnn', now())+'.log');
   form1.memo1.Lines.Clear;
 end;
 
@@ -390,14 +393,14 @@ begin
   form1.zapros.Enabled:=false;
   // Зажигаем активнсть
   form1.Shape1.Brush.Color:=clGreen;
-  if tek_datetime='' then
-    begin
-     //write_log('get_time_date');//$
-     If get_time_date(form1.ZConnection1, Form1.Zquery1) then
-        begin
-         prev_datetime:=tek_datetime;
-        end;
-    end;
+  //if tek_datetime='' then
+  //  begin
+  //   //write_log('get_time_date');//$
+  //   If get_time_date(form1.ZConnection1, Form1.Zquery1) then
+  //      begin
+  //       prev_datetime:=tek_datetime;
+  //      end;
+  //  end;
 
   //---------------- Запрос новых заданий по рейсам ----------------//
   //write_log('get_new_event_rejs');
@@ -405,10 +408,10 @@ begin
   if get_new_event_rejs(form1.ZConnection1, Form1.Zquery1)=true then
      begin
        form1.Shape2.Brush.Color:=clGreen;
-       //write_log('1play_rejs_oper - start');
+       //write_log('1play_rejs_oper - start');//&
        //----------------------------------------- операции
        play_rejs_oper();//%разремарить
-       //write_log('1play_rejs_oper - stop');
+       //write_log('1play_rejs_oper - stop');//&
        form1.Shape2.Brush.Color:=clGray;
      end;
 
@@ -430,10 +433,10 @@ begin
   if to_nmin_rejs_empty(form1.ZConnection1, Form1.Zquery1)=true then
      begin
        form1.Shape2.Brush.Color:=clGreen;
-       //write_log('2play_rejs_oper-start');
+       //write_log('2play_rejs_oper-start');//&
        //----------------------------------------- операции
        play_rejs_oper();  //%разремарить
-       //write_log('2play_rejs_oper-stop');
+       //write_log('2play_rejs_oper-stop'); //&
        form1.Shape2.Brush.Color:=clGray;
      end;
 
@@ -442,10 +445,10 @@ begin
   if get_reklama(form1.ZConnection1, Form1.Zquery1)=true then
      begin
        form1.Shape2.Brush.Color:=clGreen;
-       //write_log('3play_rejs_oper_reklama - start');
+       //write_log('3play_rejs_oper_reklama - start');//&
        //---------------------------------------- реклама
        play_rejs_oper_reklama();
-       //write_log('3play_rejs_oper_reklama - stop');
+       //write_log('3play_rejs_oper_reklama - stop');//&
        form1.Shape2.Brush.Color:=clGray;
      end;
 
